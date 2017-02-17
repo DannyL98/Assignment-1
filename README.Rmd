@@ -1,0 +1,15 @@
+---
+title:  "Assignment 1"
+output: html_document
+---
+
+
+
+#####Author: Daniel Fernandes 
+#####Student number: 722797
+
+<H2>Hello Octocat</H2>
+
+![](https://dl.dropboxusercontent.com/u/11805474/painblogr/biostats/assignments/octocat.png)
+
+#####I love Octocat. She is the coolest cat in town!
