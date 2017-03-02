@@ -5,6 +5,7 @@ output: html_document
 
 
 
+
 #####Author: Daniel Fernandes 
 #####Student number: 722797
 
@@ -12,4 +13,42 @@ output: html_document
 
 ![](https://dl.dropboxusercontent.com/u/11805474/painblogr/biostats/assignments/octocat.png)
 
+
 #####I love Octocat. She is the coolest cat in town!
+#
+###Dimensions of data frame for anscombe.
+###
+
+
+```{r Quick_look, echo=TRUE}
+#1-Dimension names
+
+data(anscombe)
+dimnames(anscombe)
+
+#2-Number of rows
+
+nrow(anscombe)
+ 
+#3-Number of columns
+
+ncol(anscombe)
+
+#4-Column names
+
+colnames(anscombe)
+
+#5-Content of first head and tail
+
+tail(anscombe[1])
+
+```
+
+
+###Summary of Stats for each column
+
+```{r Quick_look2, echo=TRUE}
+summary.data.frame(anscombe)
+```
+
+

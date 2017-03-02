@@ -136,6 +136,64 @@ Hello Octocat
 <div id="i-love-octocat.-she-is-the-coolest-cat-in-town" class="section level5">
 <h5>I love Octocat. She is the coolest cat in town!</h5>
 </div>
+<div id="section" class="section level1">
+<h1></h1>
+<div id="dimensions-of-data-frame-for-anscombe." class="section level3">
+<h3>Dimensions of data frame for anscombe.</h3>
+</div>
+<div id="section-1" class="section level3">
+<h3></h3>
+<pre class="r"><code>#1-Dimension names
+
+data(anscombe)
+dimnames(anscombe)</code></pre>
+<pre><code>## [[1]]
+##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot; &quot;11&quot;
+## 
+## [[2]]
+## [1] &quot;x1&quot; &quot;x2&quot; &quot;x3&quot; &quot;x4&quot; &quot;y1&quot; &quot;y2&quot; &quot;y3&quot; &quot;y4&quot;</code></pre>
+<pre class="r"><code>#2-Number of rows
+
+nrow(anscombe)</code></pre>
+<pre><code>## [1] 11</code></pre>
+<pre class="r"><code>#3-Number of columns
+
+ncol(anscombe)</code></pre>
+<pre><code>## [1] 8</code></pre>
+<pre class="r"><code>#4-Column names
+
+colnames(anscombe)</code></pre>
+<pre><code>## [1] &quot;x1&quot; &quot;x2&quot; &quot;x3&quot; &quot;x4&quot; &quot;y1&quot; &quot;y2&quot; &quot;y3&quot; &quot;y4&quot;</code></pre>
+<pre class="r"><code>#5-Content of first head and tail
+
+tail(anscombe[1])</code></pre>
+<pre><code>##    x1
+## 6  14
+## 7   6
+## 8   4
+## 9  12
+## 10  7
+## 11  5</code></pre>
+</div>
+<div id="summary-of-stats-for-each-column" class="section level3">
+<h3>Summary of Stats for each column</h3>
+<pre class="r"><code>summary.data.frame(anscombe)</code></pre>
+<pre><code>##        x1             x2             x3             x4    
+##  Min.   : 4.0   Min.   : 4.0   Min.   : 4.0   Min.   : 8  
+##  1st Qu.: 6.5   1st Qu.: 6.5   1st Qu.: 6.5   1st Qu.: 8  
+##  Median : 9.0   Median : 9.0   Median : 9.0   Median : 8  
+##  Mean   : 9.0   Mean   : 9.0   Mean   : 9.0   Mean   : 9  
+##  3rd Qu.:11.5   3rd Qu.:11.5   3rd Qu.:11.5   3rd Qu.: 8  
+##  Max.   :14.0   Max.   :14.0   Max.   :14.0   Max.   :19  
+##        y1               y2              y3              y4        
+##  Min.   : 4.260   Min.   :3.100   Min.   : 5.39   Min.   : 5.250  
+##  1st Qu.: 6.315   1st Qu.:6.695   1st Qu.: 6.25   1st Qu.: 6.170  
+##  Median : 7.580   Median :8.140   Median : 7.11   Median : 7.040  
+##  Mean   : 7.501   Mean   :7.501   Mean   : 7.50   Mean   : 7.501  
+##  3rd Qu.: 8.570   3rd Qu.:8.950   3rd Qu.: 7.98   3rd Qu.: 8.190  
+##  Max.   :10.840   Max.   :9.260   Max.   :12.74   Max.   :12.500</code></pre>
+</div>
+</div>
 
 
 
