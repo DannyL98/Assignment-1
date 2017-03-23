@@ -51,4 +51,14 @@ tail(anscombe[1])
 summary.data.frame(anscombe)
 ```
 
+###Scatterplot for y1 & x1
+
+```{r xy_plot, echo=FALSE, fig.height=8, fig.width=8}
+library(ggplot2)
+library(gridExtra)
+
+data(anscombe)
+
+ggplot(anscombe) + geom_point(aes(x1, y1), color = "darkorange", size = 3) + theme_bw() + scale_x_continuous(breaks = seq(0, 20, 2)) + scale_y_continuous(breaks = seq(0, 12, 2)) + geom_abline(intercept = 3, slope = 0.5, color = "cornflowerblue") + expand_limits(x = 0, y = 0) + labs(title = " y1 vs. x1")
+```
 
