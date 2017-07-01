@@ -9,6 +9,9 @@ output: md_document
 #####Author: Daniel Fernandes 
 #####Student number: 722797
 
+#Assignment 1
+###_________________________________________________________________________________________
+
 <H2>Hello Octocat</H2>
 
 ![](https://dl.dropboxusercontent.com/u/11805474/painblogr/biostats/assignments/octocat.png)
@@ -88,22 +91,22 @@ df <- read.csv("C:/Users/LORD DANNICUS/Desktop/analgesic.csv",
 ```{r data_summary, echo=TRUE}
 
 
-#Dimension names of data frame
+#1-Dimension names of data frame
 dimnames(df)
 
-#Number of columns of data frame
+#2-Number of columns of data frame
 NCOL(df)
 
-#Number of rows of data frame
+#3-Number of rows of data frame
 NROW(df)
 
-#First six lines of data frame
+#4-First six lines of data frame
 head(df)
 
-#Last six lines of data frame
+#5-Last six lines of data frame
 tail(df)
 
-#Descriptive statistics/summary of data frame
+#6-Descriptive statistics/summary of data frame
 summary.data.frame(df)
 ```
 
@@ -117,15 +120,15 @@ dfa <- gather(df,"Measurement", "Value", Measurement_1:Measurement_3)
 
 print(dfa)
 
-#Data is grouped according to group
+#7-Data is grouped according to group
 dfb <- group_by (dfa, Group)
 print(dfb)
 
-#data is grouped according to ID
+#8-Data is grouped according to ID
 dfc <- group_by (dfb, ID)
 print(dfc)
 
-#Mean of the three measurements for each patient ID
+#9-Mean of the three measurements for each patient ID
 summarise (dfc, mean(Value))
 
 ```
@@ -161,19 +164,19 @@ cw <- read.csv("C:/Users/LORD DANNICUS/Desktop/chick-weights.csv",
 
 print.data.frame(cw)
 
-#Shows how the different feeds affect chick weight.
+#1-Shows how the different feeds affect chick weight.
 boxplot(weight~reorder(feed,weight,median), data=chickwts, main="Boxplot showing Feed vs. chick weight", xlab="Feed", ylab="Chick weight at six weeks (g)")
 
-#Descriptive statistics of data set.
+#2-Descriptive statistics of data set.
 favstats(weight~feed, data=chickwts)
 
-#ANOVA test which tests for significatnts
+#3-ANOVA test which tests for significatnts
 chickmodel=lm(weight~feed, data=chickwts)
 anova(chickmodel)
 
 summary(chickmodel)
 
-#Post-hoc test which corrects (x)\ for mutiple comparisoons which avoids type 1 error
+#4-Post-hoc test which corrects (x)\ for mutiple comparisoons which avoids type 1 error
 pairwise.t.test(chickwts$weight, chickwts$feed,
                 p.adjust.method = 'holm',
                 paired = FALSE)
@@ -213,19 +216,19 @@ View(gastroenteritis)
 gi <- read.csv("C:/Users/LORD DANNICUS/Desktop/gastroenteritis.csv", 
                  header = TRUE)
 
-#'print.data.frame(gi)' allows us to visalise the complete dataset consisting of 1094 patients, for practicallity i just included the the first and last six patient measurements.   
+#1-'print.data.frame(gi)' allows us to visalise the complete dataset consisting of 1094 patients, for practicallity I just included the the first and last six patient measurements.   
 head(gi)
 tail(gi)
 
-#Contingency table for Chi-squared analysis.
+#2-Contingency table for Chi-squared analysis.
 gia <- table(gi$Outcome, gi$Consumption)
 print(gia)
 
-#Shows that gastroenteritis was caused in patients who ingested contaminated drinking water. The more glasses which were drank, the greater the likelihood of the disaese. 
+#3-Shows that gastroenteritis was caused in patients who ingested contaminated drinking water. The more glasses which were drank, the greater the likelihood of the disaese. 
 barplot(gia,col = c("black", "grey"), main="Relation of waterconsumption to illness", xlab="Consumption", ylab = "Illness amongst pationts")
 legend ('topleft', legend = c("Ill", "Not Ill"), fill = c("black", "grey"))
 
-#Allows us to see whether the findings in the plot are significant.
+#4-Allows us to see whether the findings in the plot are significant.
 chisq.test(gia)
 
 ```
@@ -267,7 +270,7 @@ na <- read.csv("C:/Users/LORD DANNICUS/Desktop/nausea.csv",
                  header = TRUE)
 
 
-#### Patient eights reading of Nausea_after treatment negatively affects the spread of data and prevents us from performing the nessesary statistical test as a result it must be ommited
+#1- Patient eights reading of Nausea_after treatment negatively affects the spread of data and prevents us from performing the nessesary statistical test as a result it must be ommited
 naa <- na[-8,]
 print(na)
 
@@ -275,10 +278,10 @@ nab<- select (naa, Nausea_before, Nausea_after)
 
 print(nab)
 
-#Shows us that nausea before is higher as compared to after receptor blocker treatment.
+#2-Shows us that nausea before is higher as compared to after receptor blocker treatment.
 boxplot(nab$Nausea_before, nab$Nausea_after,main = "Association between Nausea after 5HT3-receptor blocker treatment",names = c("Nausea_before", "Nausea_after")) 
 
-#Tests for significants of results.
+#3-Tests for significants of results.
 wilcox.test(nab$Nausea_before, nab$Nausea_after, paired = TRUE)
 
 
@@ -319,40 +322,40 @@ hp <- read.csv("C:/Users/LORD DANNICUS/Desktop/housing-prices.csv",
 
 print.data.frame(hp)
 
-#Data set no.17 to be removed as there is no value recorded
+#1-Data set no.17 to be removed as there is no value recorded
 hpa <- hp[-17,] 
 
-####Main data set to be analysed
+#2-Main data set to be analysed
 print(hpa)
 
-####Statistical analysis of data 
+#3-Statistical analysis of data 
 favstats(interest_rate~median_house_price_USD, data=hpa)
 
-### Pearson's product-moment correlation
+#4-Pearson's product-moment correlation
 hpb<- cor.test(hpa$interest_rate, hpa$median_house_price_USD,
                method = 'pearson')
 print(hpb)
 
 LR <- lm(hpa)
 
-summary(LR)# Strong significantly negative association between variables 
+summary(LR)# 5-Strong significantly negative association between variables 
 
 plot(hpa, main = "Correlation between Interest Rate and Median House Prices")
-# Inaccurate plot, as a result further tests required to test distribution of data
+#6-Inaccurate plot, as a result further tests required to test distribution of data
 
 text(9.38, 300000,labels = 'r = -0.5766386', col = 'red')
 text(9.29, 288000,labels = 'p = 0.01937', col = 'red')
 
-#Now we go onto the diagmostic plots for the tests for normal distribution and homoskedasticy.
+#7-Now we go onto the diagmostic plots for the tests for normal distribution and homoskedasticy.
 
-#According to this diagnostic plot we observe that there is a linear relationship between the resduals which therefore tests the linear regression model for normal distribution.
+#8-According to this diagnostic plot we observe that there is a linear relationship between the resduals which therefore tests the linear regression model for normal distribution.
 qqnorm(LR$residuals, main = "Normal Q-Q Plot")  
 qqline(LR$residuals, col = "red")
 
 
 plot( x = LR$fitted, y = LR$residuals, main = 'Heteroskedasticy plot')
 abline(h = 0, col = 'red')
-#This plot of residuals shows an uneven slope of residuals so here we obseve that the data meets the criteria of heteroskedaticy I.e:uneven sample population is used.
+#9-This plot of residuals shows an uneven slope of residuals so here we obseve that the data meets the criteria of heteroskedaticy I.e:uneven sample population is used.
 ```
 
 ###Data interpretation

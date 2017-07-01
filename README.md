@@ -2,6 +2,11 @@
 
 ##### Student number: 722797
 
+Assignment 1
+============
+
+### \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
 <H2>
 Hello Octocat
 </H2>
@@ -126,7 +131,7 @@ Chunk 4: Importing data
 Chunk 5: Summary of the data
 ----------------------------
 
-    #Dimension names of data frame
+    #1-Dimension names of data frame
     dimnames(df)
 
     ## [[1]]
@@ -138,17 +143,17 @@ Chunk 5: Summary of the data
     ## [1] "ID"            "Group"         "Measurement_1" "Measurement_2"
     ## [5] "Measurement_3"
 
-    #Number of columns of data frame
+    #2-Number of columns of data frame
     NCOL(df)
 
     ## [1] 5
 
-    #Number of rows of data frame
+    #3-Number of rows of data frame
     NROW(df)
 
     ## [1] 40
 
-    #First six lines of data frame
+    #4-First six lines of data frame
     head(df)
 
     ##   ID     Group Measurement_1 Measurement_2 Measurement_3
@@ -159,7 +164,7 @@ Chunk 5: Summary of the data
     ## 5  5 Analgesic            24            28            23
     ## 6  6 Analgesic            22            23            26
 
-    #Last six lines of data frame
+    #5-Last six lines of data frame
     tail(df)
 
     ##    ID   Group Measurement_1 Measurement_2 Measurement_3
@@ -170,7 +175,7 @@ Chunk 5: Summary of the data
     ## 39 39 Placebo            11            20            18
     ## 40 40 Placebo            15            18            12
 
-    #Descriptive statistics/summary of data frame
+    #6-Descriptive statistics/summary of data frame
     summary.data.frame(df)
 
     ##        ID              Group    Measurement_1   Measurement_2 
@@ -320,7 +325,7 @@ Chunk 6: Tidying the data
     ## 119 39   Placebo Measurement_3    18
     ## 120 40   Placebo Measurement_3    12
 
-    #Data is grouped according to group
+    #7-Data is grouped according to group
     dfb <- group_by (dfa, Group)
     print(dfb)
 
@@ -341,7 +346,7 @@ Chunk 6: Tidying the data
     ## 10    10 Analgesic Measurement_1    18
     ## # ... with 110 more rows
 
-    #data is grouped according to ID
+    #8-Data is grouped according to ID
     dfc <- group_by (dfb, ID)
     print(dfc)
 
@@ -362,7 +367,7 @@ Chunk 6: Tidying the data
     ## 10    10 Analgesic Measurement_1    18
     ## # ... with 110 more rows
 
-    #Mean of the three measurements for each patient ID
+    #9-Mean of the three measurements for each patient ID
     summarise (dfc, mean(Value))
 
     ## # A tibble: 40 × 2
@@ -540,12 +545,12 @@ Chunk 1
     ## 70    283    casein
     ## 71    332    casein
 
-    #Shows how the different feeds affect chick weight.
+    #1-Shows how the different feeds affect chick weight.
     boxplot(weight~reorder(feed,weight,median), data=chickwts, main="Boxplot showing Feed vs. chick weight", xlab="Feed", ylab="Chick weight at six weeks (g)")
 
 ![](README_files/figure-markdown_strict/Chicken_weights-1.png)
 
-    #Descriptive statistics of data set.
+    #2-Descriptive statistics of data set.
     favstats(weight~feed, data=chickwts)
 
     ##        feed min     Q1 median     Q3 max     mean       sd  n missing
@@ -556,7 +561,7 @@ Chunk 1
     ## 5   soybean 158 206.75  248.0 270.00 329 246.4286 54.12907 14       0
     ## 6 sunflower 226 312.75  328.0 340.25 423 328.9167 48.83638 12       0
 
-    #ANOVA test which tests for significatnts
+    #3-ANOVA test which tests for significatnts
     chickmodel=lm(weight~feed, data=chickwts)
     anova(chickmodel)
 
@@ -594,7 +599,7 @@ Chunk 1
     ## Multiple R-squared:  0.5417, Adjusted R-squared:  0.5064 
     ## F-statistic: 15.36 on 5 and 65 DF,  p-value: 5.936e-10
 
-    #Post-hoc test which corrects (x)\ for mutiple comparisoons which avoids type 1 error
+    #4-Post-hoc test which corrects (x)\ for mutiple comparisoons which avoids type 1 error
     pairwise.t.test(chickwts$weight, chickwts$feed,
                     p.adjust.method = 'holm',
                     paired = FALSE)
@@ -668,7 +673,7 @@ Chunk 2
     gi <- read.csv("C:/Users/LORD DANNICUS/Desktop/gastroenteritis.csv", 
                      header = TRUE)
 
-    #'print.data.frame(gi)' allows us to visalise the complete dataset consisting of 1094 patients, for practicallity i just included the the first and last six patient measurements.   
+    #1-'print.data.frame(gi)' allows us to visalise the complete dataset consisting of 1094 patients, for practicallity I just included the the first and last six patient measurements.   
     head(gi)
 
     ##       Consumption Outcome
@@ -689,7 +694,7 @@ Chunk 2
     ## 1093 > 4 glasses/day not ill
     ## 1094 > 4 glasses/day not ill
 
-    #Contingency table for Chi-squared analysis.
+    #2-Contingency table for Chi-squared analysis.
     gia <- table(gi$Outcome, gi$Consumption)
     print(gia)
 
@@ -698,13 +703,13 @@ Chunk 2
     ##   ill                  39             265                265
     ##   not ill             121             146                258
 
-    #Shows that gastroenteritis was caused in patients who ingested contaminated drinking water. The more glasses which were drank, the greater the likelihood of the disaese. 
+    #3-Shows that gastroenteritis was caused in patients who ingested contaminated drinking water. The more glasses which were drank, the greater the likelihood of the disaese. 
     barplot(gia,col = c("black", "grey"), main="Relation of waterconsumption to illness", xlab="Consumption", ylab = "Illness amongst pationts")
     legend ('topleft', legend = c("Ill", "Not Ill"), fill = c("black", "grey"))
 
 ![](README_files/figure-markdown_strict/The_hot_Zone-1.png)
 
-    #Allows us to see whether the findings in the plot are significant.
+    #4-Allows us to see whether the findings in the plot are significant.
     chisq.test(gia)
 
     ## 
@@ -761,7 +766,7 @@ Chunk 3
                      header = TRUE)
 
 
-    #### Patient eights reading of Nausea_after treatment negatively affects the spread of data and prevents us from performing the nessesary statistical test as a result it must be ommited
+    #1- Patient eights reading of Nausea_after treatment negatively affects the spread of data and prevents us from performing the nessesary statistical test as a result it must be ommited
     naa <- na[-8,]
     print(na)
 
@@ -788,12 +793,12 @@ Chunk 3
     ## 6             4            1
     ## 7             5            0
 
-    #Shows us that nausea before is higher as compared to after receptor blocker treatment.
+    #2-Shows us that nausea before is higher as compared to after receptor blocker treatment.
     boxplot(nab$Nausea_before, nab$Nausea_after,main = "Association between Nausea after 5HT3-receptor blocker treatment",names = c("Nausea_before", "Nausea_after")) 
 
 ![](README_files/figure-markdown_strict/Nausea-1.png)
 
-    #Tests for significants of results.
+    #3-Tests for significants of results.
     wilcox.test(nab$Nausea_before, nab$Nausea_after, paired = TRUE)
 
     ## Warning in wilcox.test.default(nab$Nausea_before, nab$Nausea_after, paired
@@ -878,10 +883,10 @@ Chunk 1
     ## 16             6                 329800
     ## 17            NA                     NA
 
-    #Data set no.17 to be removed as there is no value recorded
+    #1-Data set no.17 to be removed as there is no value recorded
     hpa <- hp[-17,] 
 
-    ####Main data set to be analysed
+    #2-Main data set to be analysed
     print(hpa)
 
     ##    interest_rate median_house_price_USD
@@ -902,7 +907,7 @@ Chunk 1
     ## 15             7                 309800
     ## 16             6                 329800
 
-    ####Statistical analysis of data 
+    #3-Statistical analysis of data 
     favstats(interest_rate~median_house_price_USD, data=hpa)
 
     ##    median_house_price_USD min    Q1 median    Q3 max mean        sd n
@@ -938,7 +943,7 @@ Chunk 1
     ## 14       0
     ## 15       0
 
-    ### Pearson's product-moment correlation
+    #4-Pearson's product-moment correlation
     hpb<- cor.test(hpa$interest_rate, hpa$median_house_price_USD,
                    method = 'pearson')
     print(hpb)
@@ -957,7 +962,7 @@ Chunk 1
 
     LR <- lm(hpa)
 
-    summary(LR)# Strong significantly negative association between variables 
+    summary(LR)# 5-Strong significantly negative association between variables 
 
     ## 
     ## Call:
@@ -979,16 +984,16 @@ Chunk 1
     ## F-statistic: 6.974 on 1 and 14 DF,  p-value: 0.01937
 
     plot(hpa, main = "Correlation between Interest Rate and Median House Prices")
-    # Inaccurate plot, as a result further tests required to test distribution of data
+    #6-Inaccurate plot, as a result further tests required to test distribution of data
 
     text(9.38, 300000,labels = 'r = -0.5766386', col = 'red')
     text(9.29, 288000,labels = 'p = 0.01937', col = 'red')
 
 ![](README_files/figure-markdown_strict/Housing_prices-1.png)
 
-    #Now we go onto the diagmostic plots for the tests for normal distribution and homoskedasticy.
+    #7-Now we go onto the diagmostic plots for the tests for normal distribution and homoskedasticy.
 
-    #According to this diagnostic plot we observe that there is a linear relationship between the resduals which therefore tests the linear regression model for normal distribution.
+    #8-According to this diagnostic plot we observe that there is a linear relationship between the resduals which therefore tests the linear regression model for normal distribution.
     qqnorm(LR$residuals, main = "Normal Q-Q Plot")  
     qqline(LR$residuals, col = "red")
 
@@ -999,7 +1004,7 @@ Chunk 1
 
 ![](README_files/figure-markdown_strict/Housing_prices-3.png)
 
-    #This plot of residuals shows an uneven slope of residuals so here we obseve that the data meets the criteria of heteroskedaticy I.e:uneven sample population is used.
+    #9-This plot of residuals shows an uneven slope of residuals so here we obseve that the data meets the criteria of heteroskedaticy I.e:uneven sample population is used.
 
 ### Data interpretation
 
