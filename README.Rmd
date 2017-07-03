@@ -292,7 +292,7 @@ wilcox.test(nab$Nausea_before, nab$Nausea_after, paired = TRUE)
 
 
 
-#Assignment 5
+#Assignment 6
 ###_________________________________________________________________________________________
 
 #### Null hypothesis: There is no relationship between interest rate and house prices.
